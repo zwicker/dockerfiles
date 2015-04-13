@@ -22,7 +22,7 @@ RUN cd /node-v0.12.2 && ./configure
 RUN cd /node-v0.12.2 && make && make install && make clean
 
 # Global NPM installs
-RUN npm install --silent -g grunt-cli bower protractor sails
+RUN npm install -g grunt-cli bower protractor sails
 
 # Add SSH keys
 #ADD .ssh /user/deploy/.ssh
