@@ -9,12 +9,12 @@ MAINTAINER Emmet Memery <emmet@shorthand.com>
 # RUN ln -s /bin/true /sbin/initctl
 
 # Build dependencies
-#RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list.d/ubuntu-precise.list
-#RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list
+# RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list.d/ubuntu-precise.list
+# RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 RUN apt-get -y update
-RUN apt-get install -y -q curl g++ mongodb-10gen make build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev nginx supervisor git
-RUN gem install bundler
+RUN apt-get install -y -q curl make build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev nginx supervisor git
+# RUN gem install bundler
 
 # Install NodeJS
 RUN curl -L http://nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz | tar -xz
