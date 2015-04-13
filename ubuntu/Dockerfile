@@ -2,7 +2,7 @@
 FROM ubuntu:14.04
 
 # Maintainer declaration
-MAINTAINER Emmet Memery <emmet@shorthand.com>
+MAINTAINER Emmet Memery <emmet@mallpup.com>
 
 # Fix upstart (see https://github.com/dotcloud/docker/issues/1024)
 # RUN dpkg-divert --local --rename --add /sbin/initctl
