@@ -27,9 +27,25 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libxml2-dev \
     libxslt1-dev \
-    libmemcached-dev \
-    nodejs \
-    nodejs-legacy \
-    npm
+    libmemcached-dev 
 
-RUN npm install -g bower
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - && \
+    apt-get install -y nodejs
+
+# RUN curl -L https://npmjs.org/install.sh | sh
+
+RUN mkdir /code/ && \
+    mkdir /code/reqs
+RUN npm install -g npm 
+
+ADD requirements.txt /code/
+ADD reqs/common.txt /code/reqs/
+ADD reqs/dev.txt /code/reqs/
+ADD reqs/prod.txt /code/reqs/
+ADD package.json /code/
+#    nodejs \ nodejs-legacy \ npm
+
+RUN cd /code && \
+    pip install -r requirements.txt
+
+# RUN npm install -g bower
